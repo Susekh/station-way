@@ -152,23 +152,11 @@ function MapComponent() {
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
             console.log(`lat : ${latitude } long : ${longitude}`);
+    
             
-            function transformValue(value, originalValue, targetValue) {
-                return targetValue + (value - originalValue);
-            }
             
-            // Original values
-            const originalLat = latitude;
-            const originalLng = longitude;
-            
-            // Target values
-            const targetLat = 20.3405;
-            const targetLng = 2.8087;
-            
-            // Transform values
-            const newLat = transformValue(originalLat, originalLat, targetLat);
-            const newLng = transformValue(originalLng, originalLng, targetLng);
-            setGeoLoc([newLat, newLng]);
+    
+            setGeoLoc([latitude, longitude/30.5585]);
         };
         
  
@@ -176,15 +164,14 @@ function MapComponent() {
             console.error(`Error Code: ${error.code} - ${error.message}`);
         };
 
-        // Start checking the position every 300 milliseconds
+
         intervalId = setInterval(getCurrentPosition, 300);
         
 
-        // Cleanup function to clear the interval when the component unmounts
         return () => {
             clearInterval(intervalId);
         };
-    }, []);
+    });
 
   return (
     <motion.div 
