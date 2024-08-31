@@ -172,7 +172,7 @@ function MapComponent() {
         return () => {
             clearInterval(intervalId);
         };
-    });
+    }, []);
 
   return (
     <motion.div 
@@ -191,9 +191,9 @@ function MapComponent() {
         />
             <Polygon pathOptions={purpleOptions} positions={mL1} />
                     <Marker position={geoLoc}>
-                        <Popup>
-                            {`${geoLoc}`}
-                        </Popup>
+                    <Popup>
+                        {`Latitude: ${geoLoc[0].toFixed(6)}, Longitude: ${geoLoc[1].toFixed(6)}`}
+                    </Popup>
                     </Marker>
         </MapContainer>
     </motion.div>
