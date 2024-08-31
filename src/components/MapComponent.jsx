@@ -151,12 +151,13 @@ function MapComponent() {
         const successCallback = (position) => {
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
+            const longModified = longitude-83
             console.log(`lat : ${latitude } long : ${longitude}`);
     
             
             
     
-            setGeoLoc([latitude , longitude/30.5585]);
+            setGeoLoc([latitude , longModified]);
         };
         
  
