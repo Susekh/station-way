@@ -156,7 +156,7 @@ function MapComponent() {
             
             
     
-            setGeoLoc([latitude, longitude/30.5585]);
+            setGeoLoc([latitude , longitude/30.5585]);
         };
         
  
